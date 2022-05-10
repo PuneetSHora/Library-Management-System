@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><img style="width: 130px;" src="/img/logo.jpg" alt="Medicaps-logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/infos/admin">Admin<span class="sr-only">(current)</span></a>
+                  </li>
+                </ul>
+                <a href="/infos/profile" style="margin: 25px;" class="my-2 my-lg-0"><i style="size: 50px;" class="fa-solid fa-user"></i>Profile</a>
+                <a href="/infos/logout" class="btn btn-secondary my-2 my-sm-0">Logout</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 offset-3 login-container">
+                    <h1>Issue Book</h1>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <a class="nav-link active show" id="book-tab" data-toggle="tab" href="#issuebook" role="tab" aria-controls="issuebook" aria-selected="true">Book-Issue</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="issuebook" role="tabpanel" aria-labelledby="issuebook-tab">
+                            <% if(notregistered_msg != ''){ %>
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <%= notregistered_msg %>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <% } %>
+                            <form action="/issues/issue/<%= bookid %>" method="POST">
+                                <div class="form-group">
+                                  <label for="bookid">Book-Id</label>
+                                  <input type="text" name="bookid" class="form-control" id="bookid" aria-describedby="bookidHelp" value="<%= bookid %>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bookname">Book-Name</label>
+                                    <input type="text" name="bookname" class="form-control" id="bookname" aria-describedby="booknameHelp" value="<%= bookname %>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="studentid">Student-Id</label>
+                                    <input type="text" name="studentid" class="form-control" id="studentid" aria-describedby="booknameHelp" placeholder="enter student enrollment number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="studentname">Student-Name</label>
+                                    <input type="text" name="studentname" class="form-control" id="studentname" aria-describedby="booknameHelp" placeholder="enter student name">
+                                </div>                               
+                                <button type="submit" class="btn btn-primary">Issue</button>
+                                <a href="/infos/admin" class="btn btn-primary">Cancel</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+</body>
+</html>

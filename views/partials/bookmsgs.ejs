@@ -1,0 +1,78 @@
+<% if(typeof bookmsgs != 'undefined') { %>
+    <%bookmsgs.forEach(function(error){ %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <%= error.msg %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <% }); %>
+<% } %>
+
+<% if(booksaved_msg != ''){ %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= booksaved_msg %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% } %>
+
+<% if(update_msg != ''){ %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= update_msg %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% } %>
+
+<% if(bookissued_msg != ''){ %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= bookissued_msg %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% } %>
+
+<% if(alreadyissued_msg != ''){ %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= alreadyissued_msg %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% } %>
+
+<% if(return_msg != ''){ %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= return_msg %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% } %>
+
+
+<% if(typeof nobooks != 'undefined') { %>
+    <%nobooks.forEach(function(error){ %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <%= error.msg %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <% }); %>
+<% } %>
+
+<% if(typeof issuemsgs != 'undefined') { %>
+    <%issuemsgs.forEach(function(error){ %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <%= error.msg %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <% }); %>
+<% } %>

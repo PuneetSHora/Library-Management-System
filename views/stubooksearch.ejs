@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/a23d64e9bd.js" crossorigin="anonymous"></script>
+</head>
+<body onload="inp_load()">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><img style="width: 130px;" src="/img/logo.jpg" alt="Medicaps-logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/infos/dashboard">Student Dashboard<span class="sr-only">(current)</span></a>
+                  </li>
+                </ul>
+                <a href="/infos/profile" style="margin: 25px;" class="my-2 my-lg-0"><i style="size: 50px;" class="fa-solid fa-user"></i>Profile</a>
+                <a href="/infos/logout" class="btn btn-secondary my-2 my-sm-0">Logout</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                  <div style="margin-top:40px;">
+                    <form class="form-inline my-2 my-lg-0" action="/books/stubooksearch" method="POST">
+                        <input class="form-control mr-sm-2" id="search-input" value="hello" style="width: 50%;" name="searchtype" type="search" placeholder="Enter the Book-Name / Book-id / Writer-Name" aria-label="Search">
+                        <button class="btn btn-outline-success search-book-btn my-2 my-sm-0" type="submit">Search</button>
+                        <a class="btn btn-secondary my-2 my-sm-0" style="margin-left:8px;" href="/infos/dashboard">Cancel</a>
+                    </form>
+                  </div>
+                  <div class="page-wrapper">
+                      <div class="card">
+                          <div class="card-block">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Book-id</th>
+                                  <th scope="col">Book-Name</th>
+                                  <th scope="col">Writer-Name</th>
+                                  <th scope="col">Edition</th>
+                                  <th scope="col">Book-Image</th>
+                                  <th scope="col">Book-Status</th>
+                                  <%- include("partials/bookmsgs.ejs") %>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <% books.forEach(function(book){%>
+                                <tr class="align-middle">
+                                  <th scope="row"><%= book.bookid %></th>
+                                  <td><%= book.bookname %></td>
+                                  <td><%= book.writername %></td>
+                                  <td><%= book.edition %></td>
+                                  <td><img src="/img/<%= book.bookimg %>" width="50" class="img-thumbnail" /></td>
+                                  <% if(book.issue==1) { %>
+                                    <td>Already Issued</td>
+                                   <% } else { %>
+                                     <td>Not Issued</td>
+                                   <% } %> 
+                                <% }) %>
+                              </tbody>
+                            </table>
+                          </div>
+                      </div>
+                    </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+          
+    </main>
+    <script>
+      function inp_load(){
+        document.getElementById('search-input').value = "<%= searched %>";
+        }
+    </script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- <script src="/js/main.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+</body>
+</html>

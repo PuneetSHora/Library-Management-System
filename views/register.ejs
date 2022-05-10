@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/"><span class="sr-only"></span></a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 offset-3 login-container">
+                    <h1>Student Registration</h1>
+                    <%- include("partials/messages.ejs") %>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <a class="nav-link active show" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="register" role="tabpanel" aria-labelledby="register-tab">
+                            <form class="register-form" action="/infos/register" method="POST">
+                                <div class="form-group">
+                                    <label for="first">First Name (required)</label>
+                                    <input type="text" name="first" class="form-control" id="first" aria-describedby="firstHelp" placeholder="enter your first name">
+                                </div>
+                                <div class="form-group">
+                                  <label for="last">Last Name</label>
+                                  <input type="text" name="last" class="form-control" id="last" aria-describedby="lastHelp" placeholder="enter your last name">
+                                </div> 
+                                <div class="form-group">
+                                  <label for="register-email">Email address (required)</label>
+                                  <input type="email" name="email" class="form-control" id="register-email" aria-describedby="emailHelp" placeholder="enter your email">
+                                </div>
+                                <div class="form-group">
+                                  <label for="rollno">Enrollment no. (required)</label>
+                                  <input type="text" name="rollno" class="form-control" id="rollno" aria-describedby="rollHelp" placeholder="enter your Enrollment no.">
+                                </div>
+                                <div class="form-group">
+                                  <label for="phone">Phone Number (required)</label>
+                                  <input type="text" name="phone" class="form-control" id="phone" placeholder="enter your phone number">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Register</button>
+                              </form>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+</body>
+</html>
